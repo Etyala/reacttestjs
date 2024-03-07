@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './App.css';
 import Todo from './Todo';
+//import db from '../src/firebasec'
 
 function App() {
   var list = ['one','two']
@@ -8,6 +9,7 @@ function App() {
   const [input,setInput]=useState('');
   const addTotodo=()=>{
       setTodos([...todo,input]);
+     // db.collections('todos').add({'todo':input});
       setInput('');
   }
   return (
