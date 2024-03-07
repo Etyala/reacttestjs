@@ -1,6 +1,15 @@
+import { useState } from 'react';
 import './App.css';
+import Todo from './Todo';
 
 function App() {
+  var list = ['one','two']
+  const [todo,setTodos]=useState(list);
+  const [input,setInput]=useState('');
+  const addTotodo=()=>{
+      setTodos([...todo,input]);
+      setInput('');
+  }
   return (
     <div className="App">
       <header className="App-header">
@@ -14,6 +23,9 @@ function App() {
         >
           Amazing Developer
         </a>
+        <input value={input} onChange={e=>setInput(e.target.value)}/>
+        <button onClick={addTotodo}>AddTodo</button>
+        <Todo todo={todo}/>
       </header>
     </div>
   );
